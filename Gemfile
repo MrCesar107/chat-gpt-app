@@ -52,6 +52,7 @@ gem "bootsnap", require: false
 gem "devise"
 gem "haml-rails"
 gem "sidekiq"
+gem "tailwindcss-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
