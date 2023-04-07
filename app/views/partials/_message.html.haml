@@ -1,0 +1,8 @@
+- if message.user == current_user
+  .flex.justify-end.mb-4
+    .mr-2.py-3.px-4.bg-blue-500.rounded-bl-3xl.rounded-tr-3xl.rounded-tl-xl.text-white.max-w-xs
+      = message.body
+- else
+  .flex.justify-start.mb-4
+    .ml-2.py-3.px-4.bg-gray-400.rounded-br-3xl.rounded-tr-3xl.rounded-tl-xl.text-white.max-w-xs
+      = message.body

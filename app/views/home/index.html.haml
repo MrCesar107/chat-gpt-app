@@ -1,28 +1,12 @@
 .my-4
   %h1.text-center.text-3xl Welcome to Rails ChatGPT App
 %div{class: "mt-4 container mx-auto lg:px-32", id: "messages"}
-  -# .flex.justify-center.items-center.h-full
-  -#   %p.text-center.text-3xl.text-gray-500 There is no messages
-  .flex.justify-end.mb-4
-    .mr-2.py-3.px-4.bg-blue-400.rounded-bl-3xl.rounded-tl-3xl.rounded-tr-xl.text-white
-      Hello World!
-  .flex.justify-start.mb-4
-    .ml-2.py-3.px-4.bg-gray-400.rounded-br-3xl.rounded-tr-3xl.rounded-tl-xl.text-white
-      Hello World too!
-  .flex.justify-end.mb-4
-    .mr-2.py-3.px-4.bg-blue-400.rounded-bl-3xl.rounded-tl-3xl.rounded-tr-xl.text-white
-      Hello World!
-  .flex.justify-end.mb-4
-    .mr-2.py-3.px-4.bg-blue-400.rounded-bl-3xl.rounded-tl-3xl.rounded-tr-xl.text-white
-      Hello World!
-  .flex.justify-start.mb-4.max-w-2xl
-    .ml-2.py-3.px-4.bg-gray-400.rounded-br-3xl.rounded-tr-3xl.rounded-tl-xl.text-white
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-      at praesentium, aut ullam delectus odio error sit rem. Architecto
-      nulla doloribus laborum illo rem enim dolor odio saepe,
-      consequatur quas?
-.mt4.container.mx-auto.lg:px-32
+  - if @messages.empty?
+    .flex.justify-center.items-center.h-full
+      %p.text-center.text-3xl.text-gray-500 There is no messages
+  - else
+    = render partial: "partials/message", collection: @messages
+= form_for ChatMessage.new, url: message_path, method: :post, html: {class: "mt4 container mx-auto lg:px-32"} do |f|
   .flex.justify-between
-    %input#message.form-input.block.w-full.rounded-lg.border-gray-300.shadow-sm.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{placeholder: "Type a message", type: "text"}
-    %button#send_message.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded{type: "button"}
-      Send
+    = f.text_field :body, class: "form-input block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50", placeholder: "Type a message"
+    = f.submit "Send", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
