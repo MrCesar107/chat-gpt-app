@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 # Project's gems
 gem "devise"
 gem "haml-rails"
+gem "rubyai"
 gem "sidekiq"
 gem "tailwindcss-rails"
 
