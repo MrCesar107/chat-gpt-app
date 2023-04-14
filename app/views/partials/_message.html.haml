@@ -1,4 +1,4 @@
-- if message.user_id == current_user.id
+- if current_user.present? && message.user_id == current_user.id
   .flex.justify-end.mb-4
     .mr-2.py-3.px-4.bg-blue-500.rounded-bl-3xl.rounded-tr-3xl.rounded-tl-xl.text-white.max-w-xs
       = message.body

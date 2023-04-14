@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
       GPTMessageSenderJob.perform_later(message.body, current_user)
       redirect_to root_path
     else
-      render "home/index", locals: { chat_room: chat_room }, status: :unprocessable_entity
+      render "home/index", locals: {chat_room: chat_room}, status: :unprocessable_entity
     end
   end
 
