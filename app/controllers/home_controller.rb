@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @messages = chat_room.chat_messages.order(created_at: :asc)
+    @messages = chat_room.chat_messages.ordered
     render :index, locals: { chat_room: chat_room }
   end
 

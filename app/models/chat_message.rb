@@ -4,6 +4,8 @@ class ChatMessage < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :chat_room
 
+  scope :ordered, -> { order(created_at: :asc) }
+
   def update_messages_frame
     broadcast_append_to :messages, target: "messages-panel", partial: "partials/message", locals: { message: self, current_user: user }
   end
